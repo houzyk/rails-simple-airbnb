@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Our Flats</h1>
-  <p>All <%= @flats.count%> Flats</p>
+  <p>You searched for <%= @query%>. We found <%= @flats_found.count %> flats out of our <%= @flats.count %> on our website</p>
   <div class="row">
-    <%@flats.each do |flat|%>
+    <%@flats_found.each do |flat|%>
     <div class="col-3 card m-1 p-1">
       <%= image_tag "#{flat.picture_url}", class:"h-50"%>
       <h5 class="m-1"> <%= flat.name%> </h5>
