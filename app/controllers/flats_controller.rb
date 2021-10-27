@@ -37,9 +37,13 @@ class FlatsController < ApplicationController
   end
 
   def search
-    @flats = Flat.all
-    @flats_found = Flat.where(name: params[:query])
-    @query = params[:query]
+    if params[:query] == ''
+      redirect_to flats_path
+    else
+      @flats = Flat.all
+      @flats_found = Flat.where(name: params[:query])
+      @query = params[:query]
+    end
   end
 
   private
